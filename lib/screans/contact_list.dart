@@ -18,7 +18,7 @@ class _ContactsListState extends State<ContactsList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Contacts"),
+        title: const Text("Transfer"),
       ),
       body: FutureBuilder<List<Contact>>(
         future: _contactDao.findAll(),
@@ -87,13 +87,15 @@ class _ContactIten extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        title: Text(
-          contact.fullName,
-          style: const TextStyle(fontSize: 22.0),
+    return InkWell(
+      child: Card(
+        child: ListTile(
+          title: Text(
+            contact.fullName,
+            style: const TextStyle(fontSize: 22.0),
+          ),
+          subtitle: Text(contact.accountNumber.toString()),
         ),
-        subtitle: Text(contact.accountNumber.toString()),
       ),
     );
   }

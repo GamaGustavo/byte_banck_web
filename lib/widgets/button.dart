@@ -27,25 +27,28 @@ class ButtonCommon extends StatelessWidget {
   Widget build(BuildContext context) {
     Color buttonColor =
         this.buttonColor ?? Theme.of(context).colorScheme.primary;
-    return Material(
-      color: buttonColor,
-      child: InkWell(
-        onTap: onTap,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: SizedBox(
-            width: width,
-            height: height,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Icon(icon, size: iconSize, color: iconColor),
-                Text(
-                  title,
-                  style: TextStyle(color: textColor),
-                )
-              ],
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Material(
+        color: buttonColor,
+        child: InkWell(
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SizedBox(
+              width: width,
+              height: height,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Icon(icon, size: iconSize, color: iconColor),
+                  Text(
+                    title,
+                    style: TextStyle(color: textColor),
+                  )
+                ],
+              ),
             ),
           ),
         ),

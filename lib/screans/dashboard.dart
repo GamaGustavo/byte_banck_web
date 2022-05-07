@@ -1,3 +1,4 @@
+import 'package:byte_banck_web/screans/transactions_list.dart';
 import 'package:byte_banck_web/widgets/button.dart';
 import 'package:flutter/material.dart';
 
@@ -21,18 +22,39 @@ class Dashboard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Image.asset(_bytebanckLogo),
-            ButtonCommon(title: 'Contact', icon: Icons.monetization_on,
-                onTap: () => Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const ContactsList(),
-                  ),
-                ),
-            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  ButtonCommon(
+                      title: 'Transfer',
+                      icon: Icons.monetization_on,
+                      onTap: () => _showTransfer(context)),
+                  ButtonCommon(
+                      title: 'Transfer Feed',
+                      icon: Icons.description,
+                      onTap: () => _showTransferFeed(context)),
+                ],
+              ),
+            )
           ],
         ),
       ),
     );
   }
+
+  void _showTransfer(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const ContactsList(),
+      ),
+    );
+  }
+  void _showTransferFeed(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) =>TransactionsList(),
+      ),
+    );
+  }
 }
-
-
